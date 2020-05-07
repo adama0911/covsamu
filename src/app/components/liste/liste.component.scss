@@ -1,0 +1,48 @@
+table-cell-view-mode{
+   background-color: blue;
+}
+
+.container{
+  margin: 0;
+
+  padding: 0;
+  width: 100%;
+  min-width: 100%;
+
+  table{
+    margin: 0;
+
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
+  }
+
+  tr:hover{
+     background-color: red !important;
+     cursor: pointer;
+  }
+}
+
+.containemodal{
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  border: 2px solid black;
+ border-radius: 1rem;
+ background-color: white;
+
+ img{
+   width: 0%;
+   margin-top: 1rem;
+ }
+
+ button{
+   font-size: 2.6em;
+   margin: 2rem;
+ }
+ .ob{
+   margin-top: 1rem;
+ }
+
+}

@@ -1,0 +1,240 @@
+<div class="container">
+  <table class="table table-bordered table-striped" style="font-size: 1.6em;">
+      <thead>
+        <tr class="bg-primary" style="color:white;">
+          <th>Code</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Sexe</th>
+          <th>Age</th>
+          <th>Telephone</th>
+          <th>Ville</th>
+          <th>Niveau Cas-contact</th>
+
+        </tr>
+        <tr>
+          <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
+          <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
+          <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
+          <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
+          <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
+          <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
+          <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
+          <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
+
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr (click)="this.modno()" *ngFor="let item of this.datas" >
+          <td>{{item.code}}</td>
+          <td>{{item.nom}}</td>
+          <td>{{item.prenom}}</td>
+          <td>{{item.sexe}}</td>
+          <td>{{item.age}}</td>
+          <td>{{item.telephone}}</td>
+          <td>{{item.ville}}</td>
+          <td>{{item.niveaucascontact}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-2">
+
+        </div>
+        <div class="col-9">
+          <div class="containemodal"  *ngIf="this.mod==true">
+              <div class="row">
+                <div class="col-12">
+                    <div class="form-group col-md-4">
+                      <label for="inputState">Jours</label>
+                      <select id="inputState" class="form-control">
+                        <option selected value="1">Jour 1</option>
+                        <option selected value="2">Jour 2</option>
+                        <option selected value="3">Jour 3</option>
+                        <option selected value="4">Jour 4</option>
+                        <option selected value="5">Jour 4</option>
+                        <option selected value="6">Jour 6</option>
+                        <option selected value="7">Jour 7</option>
+                        <option selected value="8">Jour 8</option>
+                        <option selected value="9">Jour 9</option>
+                        <option selected value="10">Jour 10</option>
+                        <option selected value="11">Jour 11</option>
+                        <option selected value="12">Jour 12</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                </div>
+
+              </div>
+
+              <div class="row" >
+                  <div class="col-12" style="max-height:70rem; overflow-y:auto">
+                        <div class="row">
+                            <div class="col-12" style="max-width: 95%; margin-left: 2%;">
+                              <h2 class="text-center" style="margin:1rem;">ETAT CIVIL</h2>
+                              <div class="row">
+                                <div class="col-12">
+                                  <table class="table table-bordered" style="overflow:auto; font-size: 1.2em;" >
+                                      <thead>
+                                        <tr class="bg-primary" style="color:white;">
+                                          <th>Code</th>
+                                          <th>Nom</th>
+                                          <th>Prenom</th>
+                                          <th>Sexe</th>
+                                          <th>Grossesse</th>
+                                          <th>Age</th>
+                                          <th>Telephone</th>
+                                          <th>Region</th>
+                                          <th>Ville</th>
+                                          <th>Quartier</th>
+                                          <th>district</th>
+                                          <th>Statut matrimonial</th>
+                                          <th>Nombre d'enfant</th>
+                                          <th>Nbr personnes chez vous</th>
+                                          <th>Nbr personnes chambre</th>
+                                          <th>Travallez-vous</th>
+                                          <th>Domaine travail</th>
+                                          <th>Etes-vous scolarisé</th>
+
+                                          <th>Niveau Cas-contact</th>
+
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+
+                                        <tr>
+                                          <td>{{this.bigData[0].datas[0].code}}</td>
+                                          <td>{{this.bigData[0].datas[0].nom}}</td>
+                                          <td>{{this.bigData[0].datas[0].prenom}}</td>
+                                          <td>{{this.bigData[0].datas[0].sexe}}</td>
+                                          <td>{{this.bigData[0].datas[0].grossesse}}</td>
+                                          <td>{{this.bigData[0].datas[0].age}}</td>
+                                          <td>{{this.bigData[0].datas[0].telephone}}</td>
+                                          <td>{{this.bigData[0].datas[0].region}}</td>
+                                          <td>{{this.bigData[0].datas[0].ville}}</td>
+                                          <td>{{this.bigData[0].datas[0].quartier}}</td>
+                                          <th>{{this.bigData[0].datas[0].district}}</th>
+                                          <td>{{this.bigData[0].datas[0].matrimanial}}</td>
+                                          <td>{{this.bigData[0].datas[0].nbrEnfants}}</td>
+                                          <td>{{this.bigData[0].datas[0].nbrPersChezVous}}</td>
+                                          <td>{{this.bigData[0].datas[0].nbrPersChambre}}</td>
+                                          <td>{{this.bigData[0].datas[0].TravallezVous}}</td>
+                                          <td>{{this.bigData[0].datas[0].domain}}</td>
+                                          <td>{{this.bigData[0].datas[0].scolarise}}</td>
+                                          <td>{{this.bigData[0].datas[0].niveauCasContact}}</td>
+                                        </tr>
+
+                                      </tbody>
+                                    </table>
+                                </div>
+                              </div>
+                              <h2 class="text-center" style="margin:1rem;">SUIVI DU CAS-CONTACT</h2>
+                              <div class="row">
+                                <div class="col-12">
+                                  <table class="table table-bordered" style="overflow:auto; font-size: 1.2em;">
+                                      <thead>
+                                        <tr class="bg-primary">
+                                          <th>Code</th>
+                                          <th>Date Contact covid+</th>
+                                          <th>Lien avec le covid+</th>
+                                          <th>Date contact autorités sanitaires</th>
+                                          <th> Nbr personnes contact depuis rencontre avec Covid+</th>
+                                          <th>Lieux fréquentés depuis  rencontre avec Covid+</th>
+                                          <th>Symptômes ressentis depuis rencontre avec Covid+</th>
+                                          <th>Autre(s) maladie(s)</th>
+                                          <th>Médicaments</th>
+
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+
+                                        <tr>
+                                          <td>{{this.bigData[0].datas[0].code}}</td>
+                                          <td>{{this.bigData[0].datas[0].dateContact}}</td>
+                                          <td>{{this.bigData[0].datas[0].lienAvecCove}}</td>
+                                          <td>{{this.bigData[0].datas[0].dateContactautorite}}</td>
+                                          <td>{{this.bigData[0].datas[0].contacter}}</td>
+                                          <td>{{this.bigData[0].datas[0].lieuxFrenquenter}}</td>
+                                          <td>{{this.bigData[0].datas[0].symtom}}</td>
+                                          <td>{{this.bigData[0].datas[0].autreMaladie}}</td>
+                                          <td>{{this.bigData[0].datas[0].medicaments}}</td>
+                                        </tr>
+
+                                      </tbody>
+                                    </table>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <h2 class="text-center" style="margin:1rem;">LES SYMTOMES</h2>
+                        <div class="row bg-secondary" style="border: 1px solid black; margin: 1rem;padding-bottom: 2rem;padding-top: 2rem;" *ngFor="let jour of this.bigData">
+                            <div class="col-1 align-middle" style="padding-top: 4%; color: white; font-size: 1.8em;">
+                                jour {{jour.jour}}
+                            </div>
+                            <div class="col-11" style="border: 1px solid black; padding-bottom: 2rem;  background-color: white;">
+                              <div class="row">
+                                <div class="col-12">
+                                  <table class="table table-bordered" style="overflow:auto; font-size: 1.2em; margin-top:1rem">
+                                      <thead>
+                                        <tr class="bg-primary">
+                                          <th>Heurs</th>
+                                          <th>Code</th>
+                                          <th>Q1 : Temperature</th>
+                                          <th>Q2 :Toux</th>
+                                          <th>Q3 : Difficulté à respirer </th>
+                                          <th>Q4 : Mal de gorge </th>
+                                          <th>Q5 : Nez bouché </th>
+                                          <th>Q6 : Conjonctivite </th>
+                                          <th>Q7 : Maux de tête </th>
+                                          <th>Q8 : Douleurs musculaires et/ou articulaires</th>
+                                          <th>Q9 : Une fatigue intense</th>
+                                          <th>Q10 : Vomissements</th>
+                                          <th>Q11 : Diarrhée </th>
+                                          <th>Q12 : Perte Odorat </th>
+                                          <th>Q13 : Perte goût</th>
+                                          <th>Q14 : Autre(s) signe(s)</th>
+                                          <th>Q15 : Symptôme(s) entourage ?</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+
+                                        <tr *ngFor="let item of jour.datas" >
+                                          <td class="bg-secondary" style="color:white;">{{item.heur}}</td>
+                                          <td>{{item.code}}</td>
+                                          <td [ngStyle]="{'background-color':item.temperature > 'oui' ? 'red' : 'white' }">{{item.temperature}}</td>
+                                          <td [ngStyle]="{'background-color':item.toux === 'oui' ? 'red' : 'white' }">{{item.toux}}</td>
+                                          <td [ngStyle]="{'background-color':item.difresp === 'oui' ? 'red' : 'white' }">{{item.difresp}}</td>
+                                          <td [ngStyle]="{'background-color':item.Malgorge === 'oui' ? 'red' : 'white' }">{{item.Malgorge}}</td>
+                                          <td [ngStyle]="{'background-color':item.nezbouche === 'oui' ? 'red' : 'white' }">{{item.nezbouche}}</td>
+                                          <td [ngStyle]="{'background-color':item.conjonctivite === 'oui' ? 'red' : 'white' }">{{item.conjonctivite}}</td>
+                                          <td [ngStyle]="{'background-color':item.mauxTete === 'oui' ? 'red' : 'white' }">{{item.mauxTete}}</td>
+                                          <td [ngStyle]="{'background-color':item.douleurmusculaire === 'oui' ? 'red' : 'white' }">{{item.douleurmusculaire}}</td>
+                                          <td [ngStyle]="{'background-color':item.fatige === 'oui' ? 'red' : 'white' }">{{item.fatige}}</td>
+                                          <td [ngStyle]="{'background-color':item.vomi === 'oui' ? 'red' : 'white' }">{{item.vomi}}</td>
+                                          <td [ngStyle]="{'background-color':item.diarrhee === 'oui' ? 'red' : 'white' }">{{item.diarrhee}}</td>
+                                          <td [ngStyle]="{'background-color':item.perteOdora === 'oui' ? 'red' : 'white' }">{{item.perteOdora}}</td>
+                                          <td [ngStyle]="{'background-color':item.perteGout === 'oui' ? 'red' : 'white' }">{{item.perteGout}}</td>
+                                          <td [ngStyle]="{'background-color':item.autreSigne === 'oui' ? 'red' : 'white' }">{{item.autreSigne}}</td>
+                                          <td [ngStyle]="{'background-color':item.syntomesEntourage === 'oui' ? 'red' : 'white' }">{{item.syntomesEntourage}}</td>
+                                        </tr>
+
+                                      </tbody>
+                                    </table>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-secondary" (click)="modok()">OK</button>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
