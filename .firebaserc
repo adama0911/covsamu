@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cavad2020-93b6d"
+  },
+  "targets": {
+    "sam-covid19": {
+      "hosting": {
+        "sam-covid19": [
+          "sam-covid19"
+        ]
+      }
+    }
+  }
+}

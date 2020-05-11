@@ -5,11 +5,11 @@
           <th>Code</th>
           <th>Nom</th>
           <th>Prenom</th>
-          <th>Sexe</th>
           <th>Age</th>
+          <th>Sexe</th>
           <th>Telephone</th>
           <th>Ville</th>
-          <th>Niveau Cas-contact</th>
+          <!-- <th>Niveau Cas-contact</th> -->
 
         </tr>
         <tr>
@@ -20,21 +20,19 @@
           <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
           <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
           <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
-          <th><input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="rechercher"></th>
-
         </tr>
 
       </thead>
-      <tbody>
-        <tr (click)="this.modno()" *ngFor="let item of this.datas" >
-          <td>{{item.code}}</td>
-          <td>{{item.nom}}</td>
-          <td>{{item.prenom}}</td>
-          <td>{{item.sexe}}</td>
-          <td>{{item.age}}</td>
-          <td>{{item.telephone}}</td>
-          <td>{{item.ville}}</td>
-          <td>{{item.niveaucascontact}}</td>
+      <tbody *ngIf="this.datasChange()">
+        <tr *ngFor="let item of this.datass" (click)="this.modno(item)" >
+          <td [ngStyle]="{'background-color':((item.temperature > 37.7) || (item.temperature < 35))  ? 'red' : 'white' }">{{item.code}}</td>
+          <td [ngStyle]="{'background-color':((item.temperature > 37.7) || (item.temperature < 35))  ? 'red' : 'white' }">{{item.nom}}</td>
+          <td [ngStyle]="{'background-color':((item.temperature > 37.7) || (item.temperature < 35))  ? 'red' : 'white' }">{{item.prenom}}</td>
+          <td [ngStyle]="{'background-color':((item.temperature > 37.7) || (item.temperature < 35))  ? 'red' : 'white' }">{{truncate(this.age(item.naissance))}}</td>
+          <td [ngStyle]="{'text-transform':' uppercase','background-color':((item.temperature > 37.7) || (item.temperature < 35))  ? 'red' : 'white' }">{{item.sexe}}</td>
+          <td [ngStyle]="{'background-color':((item.temperature > 37.7) || (item.temperature < 35))  ? 'red' : 'white' }">{{item.telephone}}</td>
+          <td [ngStyle]="{'background-color':((item.temperature > 37.7) || (item.temperature < 35))  ? 'red' : 'white' }">{{item.ville}}</td>
+          <!-- <td [ngStyle]="{'background-color':((item.temperature > 37.7) || (item.temperature < 35))  ? 'red' : 'white' }">{{item.niveaucascontact}}</td> -->
         </tr>
 
       </tbody>
@@ -46,28 +44,8 @@
         </div>
         <div class="col-9">
           <div class="containemodal"  *ngIf="this.mod==true">
-              <div class="row">
-                <div class="col-12">
-                    <div class="form-group col-md-4">
-                      <label for="inputState">Jours</label>
-                      <select id="inputState" class="form-control">
-                        <option selected value="1">Jour 1</option>
-                        <option selected value="2">Jour 2</option>
-                        <option selected value="3">Jour 3</option>
-                        <option selected value="4">Jour 4</option>
-                        <option selected value="5">Jour 4</option>
-                        <option selected value="6">Jour 6</option>
-                        <option selected value="7">Jour 7</option>
-                        <option selected value="8">Jour 8</option>
-                        <option selected value="9">Jour 9</option>
-                        <option selected value="10">Jour 10</option>
-                        <option selected value="11">Jour 11</option>
-                        <option selected value="12">Jour 12</option>
-                        <option>...</option>
-                      </select>
-                    </div>
-                </div>
-
+              <div class="row" style="float: right;right: 3rem;">
+                <button type="button" class="btn btn-secondary" (click)="modok()" style="font-size: 1.5em;">X</button>
               </div>
 
               <div class="row" >
@@ -80,27 +58,25 @@
                                   <table class="table table-bordered" style="overflow:auto; font-size: 1.2em;" >
                                       <thead>
                                         <tr class="bg-primary" style="color:white;">
-                                          <th>Code</th>
-                                          <th>Nom</th>
-                                          <th>Prenom</th>
-                                          <th>Sexe</th>
+                                          <th>Q1 : Code</th>
+                                          <th>Q2 : Nom</th>
+                                          <th>Q3 : Prenom</th>
+                                          <th>Q4 : Age</th>
+                                          <th>Q5 : Sexe</th>
                                           <th>Grossesse</th>
-                                          <th>Age</th>
-                                          <th>Telephone</th>
-                                          <th>Region</th>
-                                          <th>Ville</th>
-                                          <th>Quartier</th>
-                                          <th>district</th>
-                                          <th>Statut matrimonial</th>
-                                          <th>Nombre d'enfant</th>
-                                          <th>Nbr personnes chez vous</th>
-                                          <th>Nbr personnes chambre</th>
-                                          <th>Travallez-vous</th>
-                                          <th>Domaine travail</th>
-                                          <th>Etes-vous scolarisé</th>
-
+                                          <th>Q6 : Telephone</th>
+                                          <th>Q7 : Region</th>
+                                          <th>Q8 : Ville</th>
+                                          <th>Q9 : Quartier</th>
+                                          <th>Q10 : district</th>
+                                          <th>Q11 : Statut matrimonial</th>
+                                          <th>Q12 : Nombre d'enfant</th>
+                                          <th>Q13 : Nbr personnes chez vous</th>
+                                          <th>Q14 : Nbr personnes chambre</th>
+                                          <th>Q15 : Travallez-vous</th>
+                                          <th>Q16 : Domaine travail</th>
+                                          <th>Q17 : Etes-vous scolarisé</th>
                                           <th>Niveau Cas-contact</th>
-
                                         </tr>
                                       </thead>
                                       <tbody>
@@ -109,9 +85,9 @@
                                           <td>{{this.bigData[0].datas[0].code}}</td>
                                           <td>{{this.bigData[0].datas[0].nom}}</td>
                                           <td>{{this.bigData[0].datas[0].prenom}}</td>
+                                          <td>{{this.bigData[0].datas[0].age}}</td>
                                           <td>{{this.bigData[0].datas[0].sexe}}</td>
                                           <td>{{this.bigData[0].datas[0].grossesse}}</td>
-                                          <td>{{this.bigData[0].datas[0].age}}</td>
                                           <td>{{this.bigData[0].datas[0].telephone}}</td>
                                           <td>{{this.bigData[0].datas[0].region}}</td>
                                           <td>{{this.bigData[0].datas[0].ville}}</td>
@@ -131,21 +107,21 @@
                                     </table>
                                 </div>
                               </div>
-                              <h2 class="text-center" style="margin:1rem;">SUIVI DU CAS-CONTACT</h2>
+                              <h2 class="text-center" style="margin:1rem;">ENQUETE DU CAS-CONTACT</h2>
                               <div class="row">
                                 <div class="col-12">
                                   <table class="table table-bordered" style="overflow:auto; font-size: 1.2em;">
                                       <thead>
                                         <tr class="bg-primary">
                                           <th>Code</th>
-                                          <th>Date Contact covid+</th>
-                                          <th>Lien avec le covid+</th>
-                                          <th>Date contact autorités sanitaires</th>
-                                          <th> Nbr personnes contact depuis rencontre avec Covid+</th>
-                                          <th>Lieux fréquentés depuis  rencontre avec Covid+</th>
-                                          <th>Symptômes ressentis depuis rencontre avec Covid+</th>
-                                          <th>Autre(s) maladie(s)</th>
-                                          <th>Médicaments</th>
+                                          <th>Q1 : Date Contact covid+</th>
+                                          <th>Q2 : Lien avec covid+</th>
+                                          <th>Q3 : Date contact autorités sanitaires</th>
+                                          <th>Q4 : Nbr personnes contact</th>
+                                          <th>Q5 : Lieux fréquentés</th>
+                                          <th>Q6 : Symptômes ressentis</th>
+                                          <th>Q7 : Autre(s) maladie(s)</th>
+                                          <th>Q8 : Médicament(s)</th>
 
                                         </tr>
                                       </thead>
@@ -169,10 +145,25 @@
                               </div>
                             </div>
                         </div>
-                        <h2 class="text-center" style="margin:1rem;">LES SYMTOMES</h2>
+                        <h2 class="text-center" style="margin:1rem;">SURVEILLANCE BI-QUOTIDIENNE DES SYMPTÔMES</h2>
                         <div class="row bg-secondary" style="border: 1px solid black; margin: 1rem;padding-bottom: 2rem;padding-top: 2rem;" *ngFor="let jour of this.bigData">
-                            <div class="col-1 align-middle" style="padding-top: 4%; color: white; font-size: 1.8em;">
-                                jour {{jour.jour}}
+                            <div class="col-1 align-middle" style="padding-top: 2%; color: black; font-size: 1.8em;">
+                                <div class="row">
+                                    <div class="col-12 bg-white " >
+                                        jour {{jour.jour}}
+                                        <h3>surveillance</h3>
+                                        <span style="font-size: 0.5em;">date : {{jour.date}}</span>
+
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 0.5rem;">
+                                    <div class="col-12 bg-white">
+                                        jour {{jour.jour + jour.joursAvant}}
+                                        <h3>contact</h3>
+                                    </div>
+                                </div>
+
+
                             </div>
                             <div class="col-11" style="border: 1px solid black; padding-bottom: 2rem;  background-color: white;">
                               <div class="row">
@@ -180,7 +171,7 @@
                                   <table class="table table-bordered" style="overflow:auto; font-size: 1.2em; margin-top:1rem">
                                       <thead>
                                         <tr class="bg-primary">
-                                          <th>Heurs</th>
+                                          <th>Heures</th>
                                           <th>Code</th>
                                           <th>Q1 : Temperature</th>
                                           <th>Q2 :Toux</th>
@@ -196,7 +187,7 @@
                                           <th>Q12 : Perte Odorat </th>
                                           <th>Q13 : Perte goût</th>
                                           <th>Q14 : Autre(s) signe(s)</th>
-                                          <th>Q15 : Symptôme(s) entourage ?</th>
+                                          <th>Q15 : Symptôme(s) entourage(s) ?</th>
                                         </tr>
                                       </thead>
                                       <tbody>
@@ -204,7 +195,7 @@
                                         <tr *ngFor="let item of jour.datas" >
                                           <td class="bg-secondary" style="color:white;">{{item.heur}}</td>
                                           <td>{{item.code}}</td>
-                                          <td [ngStyle]="{'background-color':item.temperature > 'oui' ? 'red' : 'white' }">{{item.temperature}}</td>
+                                          <td [ngStyle]="{'background-color':((item.temperature > 37.7) || (item.temperature < 35))  ? 'red' : 'white' }">{{item.temperature}}</td>
                                           <td [ngStyle]="{'background-color':item.toux === 'oui' ? 'red' : 'white' }">{{item.toux}}</td>
                                           <td [ngStyle]="{'background-color':item.difresp === 'oui' ? 'red' : 'white' }">{{item.difresp}}</td>
                                           <td [ngStyle]="{'background-color':item.Malgorge === 'oui' ? 'red' : 'white' }">{{item.Malgorge}}</td>
@@ -236,5 +227,46 @@
               </div>
           </div>
         </div>
+    </div>
+    <div class="loginmodale" *ngIf="this.login==false">
+      <div class="row">
+          <div class="col-12">
+              <img src="../../../assets/images/assistances.png" alt="" style="min-width: 100%;max-width: 100%;">
+          </div>
+      </div>
+       <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4 blockLogin">
+              <form>
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Identifient :</label>
+                  <div class="col-10">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Identifient">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-2 col-form-label">Mot de passe :</label>
+                  <div class="col-10">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Mot de passe">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-10 text-center" >
+                    <button type="button" class="btn btn-lg btn-primary" (click)="this.Llogin()">Valider</button>
+                  </div>
+                </div>
+                </form>
+            </div>
+       </div>
+       <div class="row" >
+         <div class="col-5">
+
+         </div>
+         <div class="col-2" >
+            <img src="../../../assets/images/ImglogoAdmin.png" alt="" style="min-width: 100%;max-width: 100%;margin-top:2rem;">
+         </div>
+       </div>
     </div>
 </div>

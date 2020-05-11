@@ -12,6 +12,10 @@ import {CompanyService} from './services/company.service';
 import {ModalModule} from 'angular-custom-modal';
 import {NgPipesModule} from 'ngx-pipes';
 
+import {HttpClientModule} from '@angular/common/http';
+import {AdminService} from './services/admin.service';
+import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -26,9 +30,11 @@ import {NgPipesModule} from 'ngx-pipes';
     AppRoutingModule,
     TableModule,
     ModalModule,
-    NgPipesModule
+    NgPipesModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [CompanyService],
+  providers: [CompanyService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,7 +18,7 @@ table-cell-view-mode{
   }
 
   tr:hover{
-     background-color: red !important;
+     background-color: green !important;
      cursor: pointer;
   }
 }
@@ -45,4 +45,22 @@ table-cell-view-mode{
    margin-top: 1rem;
  }
 
+}
+
+.loginmodale{
+  background-image: url("../../../assets/images/bg.jpg");
+   position: fixed;
+   top: 0;
+   left: 0;
+   min-width: 100%;
+   min-height: 100%;
+   background-color: black;
+   opacity: 1;
+   .blockLogin{
+        padding: 6rem;
+       background-color: white;
+       border-radius: 5rem;
+       margin-top: 5%;
+       opacity: 1;
+   }
 }
