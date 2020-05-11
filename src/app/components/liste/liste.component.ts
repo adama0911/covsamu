@@ -223,7 +223,7 @@ export class ListeComponent implements OnInit {
 
       this.motif = event.target.value;
       let tabe = [];
-      this.datas = [];
+      this.datass = [];
 
       if(this.motif.trim()=='')
         this.datass = this.datasSaves;
